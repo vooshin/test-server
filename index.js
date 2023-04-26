@@ -1,6 +1,8 @@
 const express = require("express");
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const port = process.env.PORT || 3000;
 app.get("/", (req, res) => {
   const host = req?.headers?.host;
@@ -10,6 +12,10 @@ app.get("/", (req, res) => {
       host,
     },
   });
+});
+app.get("/test", (req, res) => {
+  const host = req?.headers?.host;
+  res.send("test route");
 });
 
 app.listen(port, () => {
