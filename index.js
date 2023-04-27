@@ -15,7 +15,6 @@ app.get("/", (req, res) => {
   });
 });
 app.get("/test", (req, res) => {
-  const host = req?.headers?.host;
   res.send("test route");
 });
 
