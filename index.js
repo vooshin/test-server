@@ -5,7 +5,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const port = process.env.PORT || 3000;
 app.get("/", (req, res) => {
-  const host = req?.headers?.host;
+  const headers = req.headers || {};
+  const host = headers.host || "no host";
   res.json({
     message: "base route",
     data: {
